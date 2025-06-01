@@ -40,10 +40,10 @@ function WasteWiseApp({ user }) {
     const prompt = `${productName}${packagingInfo}`;
 
     try {
-      const healthResponse = await fetch("http://localhost:5000/health");
+      const healthResponse = await fetch("https://wastewise-api.onrender.com/health");
       if (!healthResponse.ok) throw new Error("Server not responding");
 
-      const response = await fetch("http://localhost:5000/classify", {
+      const response = await fetch("https://wastewise-api.onrender.com/classify", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({ prompt }),

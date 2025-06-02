@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# WasteWise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WasteWise is a full-stack web application that helps users classify waste items as Recyclable, Compostable, Trash, or Hazardous. It leverages AI-powered natural language processing, barcode scanning, and a cloud database to provide real-time, personalized waste tracking and analytics.
 
-## Available Scripts
+**Live App:** [wastewise-frontend-ashen.vercel.app]
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- AI-based waste classification using Hugging Face NLP models
+- Barcode scanning using OpenFoodFacts API
+- Manual entry support for unscannable items
+- Firebase Authentication with protected routes
+- Realtime cloud logging and classification history (Firestore)
+- Personalized waste analytics dashboard with Recharts
+- Responsive UI designed for mobile and desktop
+- Hosted frontend on Vercel and backend on Render
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Frontend:**
+- React (Vite)
+- Tailwind CSS
+- Firebase Authentication
+- Recharts for data visualization
 
-### `npm test`
+**Backend:**
+- Node.js with Express
+- Hugging Face Inference API (BART)
+- Firestore (NoSQL database)
+- OpenFoodFacts public API
+- Hosted via Render
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API Workflow
 
-### `npm run build`
+1. Users scan a barcode or enter a product manually
+2. The backend queries OpenFoodFacts (for barcodes)
+3. The item name and packaging info is sent to Hugging Face for classification
+4. The classification is normalized and returned to the frontend
+5. The result is logged to Firestore under the authenticated user
+6. Realtime analytics are updated and displayed in the dashboard
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+/wastewise
+  /client   → React frontend
+  /server   → Node.js backend API
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Frontend and backend are hosted and maintained in separate GitHub repositories for modularity and deployment flexibility.
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js and npm installed locally
+- Firebase project with Authentication and Firestore enabled
+- Hugging Face API key
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Clone the repositories
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+git clone https://github.com/yourusername/wastewise-frontend.git
+git clone https://github.com/yourusername/wastewise-backend.git
+```
 
-## Learn More
+### Start backend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+cd wastewise-backend
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file with:
+```
+HUGGINGFACE_API_KEY=your-api-key
+PORT=5000
+```
 
-### Code Splitting
+Start the backend:
+```bash
+node index.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Start frontend
 
-### Analyzing the Bundle Size
+```bash
+cd wastewise-frontend
+npm install
+npm run dev
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Backend Repository
 
-### Making a Progressive Web App
+The backend code (AI classification engine + API) is available at:  
+[https://github.com/jillchaudhari-tamu/wastewise-backend](https://github.com/jillchaudhari-tamu/wastewise-backend)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Author
 
-### Advanced Configuration
+**Jill Chaudhari**  
+Computer Science and Engineering  
+Texas A&M University  
+Email: jillchaudhari0817@gmail.com  
+LinkedIn: [linkedin.com/in/jill-chaudhari](https://www.linkedin.com/in/jill-chaudhari/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Summary
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+WasteWise demonstrates a complete, deployable full-stack application focused on sustainability, intelligent automation, 
+and user-centered design. It integrates modern frontend technologies, NLP-powered backend logic, and real-time cloud infrastructure, 
+providing a strong example of practical engineering and product development.

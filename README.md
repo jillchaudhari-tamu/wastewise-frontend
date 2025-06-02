@@ -2,7 +2,7 @@
 
 WasteWise is a full-stack web application that helps users classify waste items as Recyclable, Compostable, Trash, or Hazardous. It leverages AI-powered natural language processing, barcode scanning, and a cloud database to provide real-time, personalized waste tracking and analytics.
 
-**Live App:** [wastewise-frontend-ashen.vercel.app]
+**Live App:** [wastewise-frontend-ashen.vercel.app] (https://wastewise-frontend-ashen.vercel.app)
 
 ## Features
 
